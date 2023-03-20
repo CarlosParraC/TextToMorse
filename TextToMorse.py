@@ -6,6 +6,10 @@ class TextToMorse:
 
     def texttomorse(self, text):
         result = ''
+        
         for letter in text.lower():
-            result += self.morse[self.alphabet.index(letter)] + " "
+            try:
+                result += self.morse[self.alphabet.index(letter)] + " "
+            except ValueError:
+                return f"The character {letter} was not found."
         return result
